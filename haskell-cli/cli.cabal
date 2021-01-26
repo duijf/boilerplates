@@ -51,6 +51,10 @@ common deps
 
 library
   import: deps, sanity
+
+  if flag(release)
+    import: release
+
   hs-source-dirs: src
   exposed-modules:
     Cli,
