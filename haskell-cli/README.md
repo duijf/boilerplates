@@ -13,6 +13,9 @@ $ nix-shell --command $SHELL
 $ cabal build
 
 # Build the project (release, enables -Werror)
+# NB: be careful, this might use cached build results from
+# dist-newstyle so you might not actually get a failed build
+# while you'd expect one.
 $ cabal build -f release
 ```
 
