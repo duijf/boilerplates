@@ -21,6 +21,9 @@ $ cabal build -f release
 # Running the program
 $ cabal run -- cli --string foo --number 5
 Config {number = 5, string = "foo"}
+
+# Run the test suite
+$ cabal test
 ```
 
 ## Features
@@ -31,6 +34,11 @@ Cabal and Nix:
  - Sane set of extra warnings.
  - Relatively small set of default language extensions.
  - Deduplicated cabal file with import stanzas.
+
+Haskell:
+
+ - CLI parsing with `options-generic`
+ - Test suite with `hspec` and `hspec-discover`
 
 ## How to use
 
