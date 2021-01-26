@@ -10,3 +10,7 @@ as you want.
  - `haskell-cli` - Haskell CLI tool.
  - `latex-doc` - LaTeX article with autoreload, and Nixified texlive
    environment.
+
+## License
+
+Feel free to use the code in this repo under the MIT license.
