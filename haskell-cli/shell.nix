@@ -4,6 +4,7 @@ let
     ps.bytestring
     ps.directory
     ps.filepath
+    ps.hspec
     ps.optparse-generic
     ps.text
   ]);

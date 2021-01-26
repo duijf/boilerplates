@@ -56,16 +56,34 @@ library
     import: release
 
   hs-source-dirs: src
+
   exposed-modules:
     Cli,
 
+test-suite cli-tests
+  import: deps, sanity
+
+  build-depends:
+    hspec,
+
+  if flag(release)
+    import: release
+
+  hs-source-dirs: test
+  main-is: Spec.hs
+
+  other-modules:
+    CliSpec,
+
+  type: exitcode-stdio-1.0
+
 executable cli
   import: deps, sanity
+
+  build-depends:
+    cli,
 
   if flag(release)
     import: release
 
   main-is: src/Main.hs
-
-  build-depends:
-    cli,
