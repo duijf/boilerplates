@@ -17,6 +17,10 @@ $ cabal build
 # dist-newstyle so you might not actually get a failed build
 # while you'd expect one.
 $ cabal build -f release
+
+# Running the program
+$ cabal run -- cli --string foo --number 5
+Config {number = 5, string = "foo"}
 ```
 
 ## Features
