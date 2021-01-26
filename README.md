@@ -3,7 +3,15 @@
 Boilerplate starter templates that I use from time to time.
 
 These are geared for my personal use, but feel free to take from these
-as you want.
+as you want. They should sometimes show off how to accomplish certain
+things.
+
+## Features
+
+ - Use Nix for the development environment.
+ - No excessive dependencies.
+ - Spend less time fiddling with project setup and get to the meat of
+   your idea.
 
 ## Boilerplates
 
