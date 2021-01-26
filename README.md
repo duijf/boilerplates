@@ -8,3 +8,5 @@ as you want.
 ## Boilerplates
 
  - `haskell-cli` - Haskell CLI tool.
+ - `latex-doc` - LaTeX article with autoreload, and Nixified texlive
+   environment.
