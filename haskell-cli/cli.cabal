@@ -1,0 +1,67 @@
+cabal-version: 3.0
+name: cli
+version: 0.0.1
+author: Laurens Duijvesteijn
+maintainer: git@duijf.io
+
+flag release
+  description: Release build?
+  default: False
+  Manual: True
+
+common release
+  ghc-options: -Werror
+
+common sanity
+  default-language: Haskell2010
+  ghc-options:
+    -Wall
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wmissing-exported-signatures
+    -Wpartial-fields
+  default-extensions:
+    DeriveAnyClass,
+    DeriveFoldable,
+    DeriveFunctor,
+    DeriveGeneric,
+    DeriveTraversable,
+    DerivingStrategies,
+    FlexibleContexts,
+    FlexibleInstances,
+    GeneralizedNewtypeDeriving,
+    InstanceSigs,
+    LambdaCase,
+    MultiParamTypeClasses,
+    NamedFieldPuns,
+    NumericUnderscores,
+    OverloadedStrings,
+    ScopedTypeVariables,
+    StandaloneDeriving,
+    TypeApplications
+
+common deps
+  build-depends:
+    base,
+    bytestring,
+    directory,
+    filepath,
+    optparse-generic,
+    text,
+
+library
+  import: deps, sanity
+  hs-source-dirs: src
+  exposed-modules:
+    Cli,
+
+executable cli
+  import: deps, sanity
+
+  if flag(release)
+    import: release
+
+  main-is: src/Main.hs
+
+  build-depends:
+    cli,
