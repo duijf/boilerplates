@@ -7,15 +7,15 @@ USAGE
 Run all lints, fixing any found problems automatically when
 appropriate.
 
-    ./pre-commit.py
+    ./pre-commit
 
 Run all lints. Only report errors, don't fix them.
 
-     ./pre-commit.py --check
+    ./pre-commit --check
 
 Install this script as a pre-commit hook.
 
-     ./pre-commit.py --install
+    ./pre-commit --install
 """
 
 from __future__ import annotations
@@ -62,7 +62,7 @@ def install_git_hook() -> None:
     script_contents = (
         "/usr/bin/env bash\n"
         "set -eufo pipefail\n"
-        "$PROJECT_ROOT/bin/pre-commit.py --check\n"
+        "$PROJECT_ROOT/bin/pre-commit --check\n"
     )
 
     repo_root = pathlib.Path(os.environ["PROJECT_ROOT"])
