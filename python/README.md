@@ -2,30 +2,35 @@
 
 Boilerplate for a Python codebase.
 
+## Dependencies
+
+ - Nix
+ - direnv
+
 ## Commands
 
 ```
-# Get a development shell. Using $SHELL means you get your default
-# shell configuration. (By default, bash is started).
-$ ./bin/dev-shell.sh
+# Run direnv allow to automatically load a development shell
+# when `cd`ing to the current directory.
+$ direnv allow
 
 # Run the program
-$ python -m my_module
+$ start
 
 # Documentation server
-$ ./bin/docs.py
+$ docs
 
 # Generate documentation
-$ ./bin/docs.py --build
+$ docs --build
 
 # Run the test suite
-$ ./bin/test.sh
+$ test
 
 # Run pre-commit lints and checks
-$ ./bin/pre-commit.py
+$ pre-commit
 
 # Install pre-commit lints and checks
-$ ./bin/pre-commit.py --install
+$ pre-commit --install
 ```
 
 ## Features
