@@ -1,7 +1,6 @@
 use Mix.Config
 
-S
-
+# Configure your database
 config :app, App.Repo,
   database: "postgres",
   socket_dir: System.get_env("STATE_DIR") <> "/postgres",
@@ -13,12 +12,20 @@ config :app, App.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :app, AppWeb.Endpoint,
+config :app_web, AppWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: []
+  watchers: [
+    node: [
+      "node_modules/webpack/bin/webpack.js",
+      "--mode",
+      "development",
+      "--watch-stdin",
+      cd: Path.expand("../apps/app_web/assets", __DIR__)
+    ]
+  ]
 
 # ## SSL Support
 #
@@ -45,11 +52,10 @@ config :app, AppWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :app, AppWeb.Endpoint,
+config :app_web, AppWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
       ~r"lib/app_web/(live|views)/.*(ex)$",
       ~r"lib/app_web/templates/.*(eex)$"
     ]
@@ -58,9 +64,9 @@ config :app, AppWeb.Endpoint,
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
+# Initialize plugs at runtime for faster development compilation
+config :phoenix, :plug_init_mode, :runtime
+
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
-
-# Initialize plugs at runtime for faster development compilation
-config :phoenix, :plug_init_mode, :runtime
