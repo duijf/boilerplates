@@ -13,6 +13,11 @@ use Mix.Config
 config :app,
   ecto_repos: [App.Repo]
 
+# Make Ecto use UUIDs and UTC timestamps by default.
+config :app, App.Repo,
+  migration_primary_key: [type: :uuid],
+  migration_timestamps: [type: :utc_datetime]
+
 config :app_web,
   ecto_repos: [App.Repo],
   generators: [context_app: :app]
