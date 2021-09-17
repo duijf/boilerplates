@@ -1,12 +1,10 @@
 use Mix.Config
 
-# Configure your database
+S
+
 config :app, App.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "app_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
+  database: "postgres",
+  socket_dir: System.get_env("STATE_DIR") <> "/postgres",
   pool_size: 10
 
 # For development, we disable any cache and enable
