@@ -20,7 +20,7 @@ defmodule App.MixProject do
   def application do
     [
       mod: {App.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ssl]
+      extra_applications: [:logger, :runtime_tools, :ssl, :os_mon]
     ]
   end
 
@@ -33,18 +33,19 @@ defmodule App.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5.12"},
-      {:phoenix_ecto, "~> 4.4"},
+      {:ecto_psql_extras, "~> 0.6"},
       {:ecto_sql, "~> 3.4"},
-      {:postgrex, ">= 0.15.8"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_dashboard, "~> 0.4"},
-      {:telemetry_metrics, "~> 0.4"},
-      {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:phoenix, "~> 1.5.12"},
+      {:phoenix_ecto, "~> 4.4"},
+      {:phoenix_html, "~> 2.11"},
+      {:phoenix_live_dashboard, "~> 0.4"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:plug_cowboy, "~> 2.0"},
+      {:postgrex, ">= 0.15.8"},
+      {:telemetry_metrics, "~> 0.4"},
+      {:telemetry_poller, "~> 0.4"},
     ]
   end
 

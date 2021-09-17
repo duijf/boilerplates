@@ -36,7 +36,7 @@ defmodule AppWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: AppWeb.Telemetry
+      live_dashboard "/dashboard", metrics: AppWeb.Telemetry, ecto_repos: [App.Repo]
     end
   end
 end
