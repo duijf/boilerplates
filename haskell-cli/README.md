@@ -9,6 +9,10 @@ Boilerplate for a Haskell CLI application.
 # shell configuration. (By default, bash is started).
 $ nix-shell --command $SHELL
 
+# Alternatively, for direnv users: whitelist the .envrc file in this
+# directory
+$ direnv allow
+
 # Build the project (development)
 $ cabal build
 
