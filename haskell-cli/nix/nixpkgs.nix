@@ -1,7 +1,8 @@
 let
+  rev = "56cbe42f1668338d05febfbb866e32f2c865609a";
   pkgsTarball = fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/c46b679be03303111d3b14d4e65495766c6b01e9.tar.gz";
-    sha256 = "sha256:1ia0hn5mh0nbshq3hsza4qnqp0hl16p1gj2xaihcgy0pz28prwhk";
+    url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+    sha256 = "sha256:0m9q6g1yk9vq58ffzy17c46n4nfkjqncbn2mr9r9bp3i4j1sp7w9";
   };
 in
   import pkgsTarball
